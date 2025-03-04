@@ -5,25 +5,80 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#262626"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.531" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:text="Cuenta tus pasos con StepTracker"
+        android:textColor="#D5EFF2"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/stepsCounter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/stepsCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:text="Pasos: 0"
-        app:layout_constraintBottom_toTopOf="@+id/resetStepsButton"
-        app:layout_constraintStart_toStartOf="@+id/resetStepsButton" />
+        android:textColor="#D5EFF2"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/resetStepsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
-        android:text="Reset"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:backgroundTint="#D5EFF2"
+        android:text="Resetear pasos"
+        android:textColor="#262626"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stepsCounter" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="#258697"
+        android:text="Guardar pasos"
+        android:textColor="#D5EFF2"
+        android:textColorLink="#523131"
+        app:layout_constraintBottom_toTopOf="@+id/stepsChart"
+        app:layout_constraintEnd_toStartOf="@+id/resetStepsButton"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/stepsChart"
+        android:layout_width="325dp"
+        android:layout_height="275dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
